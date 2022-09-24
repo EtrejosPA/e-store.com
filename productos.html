@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./normalize.css">
+    <link rel="stylesheet" href="./styles.css">
+    <title>My Web</title>
+</head>
+<body>
+    <header class="header">
+        <a href="index.html">
+            <img class="header__logo" src="img/logo.png" alt="Logotipo">
+        </a>
+    </header>
+                <!-- bloque-->
+    <nav class="navegacion"> <!--Elemento y mificador-->
+        <a class="navegacion__enlace navegacion__enlace--activo" href="index.html">Tienda</a>
+        <a class="navegacion__enlace" href="nosotros.html">Nosotros</a>
+    </nav>
+
+    <main class="contenedor">
+        <h1>React JS</h1>
+
+        <div class="camisa">
+            <img class="camisa__imagen" src="./img/3.jpg" alt=" T-shirt React">
+            <div class="camisa__coontenido">
+                <p>Prabitur id metus justo. Donec et purus ultricies, malesuada enim vitae, semper ligulaLorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in porttitor nisi. Fusce iaculis elit a dolor tristique, sed eleifend ante scelerisque. Donec eget sapien sollicitudin tortor.</p>
+                <form class="formulario">
+                    <select class="formulario__campo">
+                        <option disabled selected> Selecionar Talla </option> <!-- se le pasa 2 atributos el primero para desabilitar la opcion de select y el sugundo para para mantenerlo visualmente-->
+                        <option>Chica</option>
+                        <option>Mediana</option>
+                        <option>Mediana</option>
+                    </select>
+                    <input class="formulario__campo" type="number" placeholder="Cantidad" min="1"> <!-- se coloca el atributo min para no mostrar seleccion en números negativos-->
+                    <input class="formulario__submit" type="submit" value="Agregar al Carrito">
+                </form>
+            </div>
+        </div>
+    </main>
+    <br><br><br><br><br><br><br>
+    
+    <footer class="footer">
+
+        <div class="contenedorb">
+            <div class="boton">
+                <div class="iconos"><i class="fa fa-facebook" aria-hidden="true"></i></div>
+                <a href="https://www.facebook.com/Etrejoss"><span>Facebook</span></a>
+            </div>
+            <div class="boton">
+                <div class="iconos"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
+                <a href="https://www.linkedin.com/in/etrejospa/"><span>Linkedin</span></a>
+            </div>
+            <div class="boton">
+                <div class="iconos"><i class="fa fa-instagram" aria-hidden="true"></i></div>
+                <a href="https://www.instagram.com/etrejos_/"><span>Instagram</span></a>
+            </div>
+            <div class="boton">
+                <div class="iconos"><i class="fa fa-youtube-play" aria-hidden="true"></i></div>
+                <a href="https://www.youtube.com/channel/UCxoH_6m594d0-3OGitcnE0Q"><span>Youtube</span></a>
+            </div>
+            <div class="boton">
+                <div class="iconos"><i class="fa fa-github" aria-hidden="true"></i></div>
+                <a href="https://github.com/EtrejosPA"><span>Github</span></a>
+            </div>
+        </div>
+            <div class="footer__texto">
+                <p>
+                <small>&copy; 2022-2025 Interactive Programmers Community - Todos los derechos reservados</small> 
+                <br><span>Aviso legal - Política de privacidad - Política de cookies</span>
+                </p>
+            </div>
+    </footer>
+</body>
+</html>

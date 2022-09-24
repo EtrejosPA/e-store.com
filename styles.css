@@ -1,0 +1,295 @@
+:root { /* esta es la caja de variables a utilzar */
+    --primario: #9c27b0;
+    --primarioOscuro: #89119d;
+    --secundario: #ffce00;
+    --secundarioOscuro: rgb(233, 187, 2);
+    --blanco: #fff;
+    --negro: #000;
+
+    --fuenteprincipal: 'Staatliches', cursive;
+}
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {/* siempre aplicar al iniciar una hoja de estilo https://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+    box-sizing: border-box;
+    font-size: 62.5%;
+  }
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+    /* Globles*/
+body {
+    background-color: var(--primario);
+    font-size: 1.6rem;
+    line-height: 1.5;
+  }
+p {
+    font-size: 1.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--blanco) ;
+}
+a {
+    text-decoration: none;
+}
+img {
+    width: 100%;
+}
+.contenedor {
+    max-width: 120rem;
+    margin: 0 auto;
+}
+h1, h2, h3 {
+    text-align: center;
+    color: var(--secundario);
+    font-family: var(--fuenteprincipal);
+}
+h1 {
+    font-size: 4rem;
+}
+h2 {
+    font-size: 3.2rem;
+}
+h3 {
+    font-size: 2.4rem;
+}
+/**Header**/
+.header {
+    display: flex;
+    justify-content: center;
+}
+.header__logo {
+    margin: 3rem 0;
+}
+/**navegacion*/
+.navegacion{
+    background-color: var(--primarioOscuro);
+    padding: 2rem 0;
+    display: flex;
+    justify-content: center;
+    /** gap: 2rem; separacion forma nueva  porque no todos lo navegadores lo soporta**/
+ }
+.navegacion__enlace {
+    font-family: var(--fuenteprincipal);
+    color:var(--blanco);
+    font-size: 3rem;
+    margin-right: 2rem; /** separa las letras entre si  como lo hace gap: 2rem;**/
+}
+.navegacion__enlace:last-of-type{ /**hace lo mismo que gap: 2rem; este es un seudo selector que centrea el espacio del texto tienda y nosotros con la letra arriba **/
+    margin-right: 0;
+}
+.navegacion__enlace--activo, /** este es un elemento modificador a lo que ya esta**/
+.navegacion__enlace:hover {
+    color: var(--secundario);
+}
+/**Grid.  usar fire fox devop  al usar grid ya que nos ayuda a posionar elementos con la inspecion**/
+.grid { /** el gris ayuda ahcer mucho mas dinamico y flexible el contenido**/
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2rem; /** separacion entre columnas **/
+    row-gap: 2rem; /** separecion hacia abajo  tambien puede ser gap: 2rem y lo aplica uniformemente*/ 
+}
+@media (min-width: 768px) { /** esto lo mantiene mostrando en 3 columna arriba del pixel solicitado **/
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+/**producto**/
+.producto{
+    background-color:var(--primarioOscuro);
+    padding: 1rem; /** rellena  mas un poco el backgronund color atras en la imagen **/
+}
+/**.producto__imagen {
+    width: 100%;  toma el espacio disponible para mostrarlo de manera uniforme 
+} **/
+.producto__nombre {
+    font-size: 4rem;
+}
+.producto__nombre:hover {
+    color: var(--secundario);
+}
+.producto__precio {
+    font-size: 2.8rem;
+    color: var(--secundario);
+}
+.producto__nombre, /** esto le aplica  a ambos la misma propiedad **/
+.producto__precio {
+    font-family: var(--fuenteprincipal);
+    margin: 1rem 0; /** le da espacio por igual a las letras arriba y abajo y a los lados 0 **/ 
+    text-align: center; /** centrea las letras **/
+    line-height: 1.2; /** reduce un poco el espacio de arriba entre el precio el la parte de la letra de abajo **/
+}
+/**Graficos**/
+.grafico {
+    min-height: 30rem; /** define el espacio minimo  para la imagen**/
+    background-repeat: 0; /** hace que la imagen no se repita en el espacio sobrante */
+    background-size: cover; /* " estira o rellena" con la imagen en el espacio disponobel */
+}
+.grafico--camisa { /** posiciona la imagen dentro del grid en la cantiad de columna deseadas **/
+    grid-row: 2 / 3;
+    grid-column: 1 / 3;
+    background-image: url(../img/grafico1.jpg);
+} 
+.grafico--node { /** esta configuracion  a 'node'aplica a esta imagen solo por estar del lado derecho **/
+    background-image: url(../img/grafico2.jpg);
+    grid-column: 1 / 3; /** para definir que tanto de colm va tomar al hacerce responsive en pantalla chica */
+    grid-row: 8 / 9;
+}
+@media (min-width: 768px) {  /** ayuda a que en dispositivos pequeños no haga scroll hacia los lados por que tiene drentro del grid 4 colm **/
+    .grafico--node { /** posiciona la imagen dentro del grid en la cantiad de columna deseadas **/
+        grid-row: 5 / 6;
+        grid-column: 2 / 4;
+    }
+}
+/** Nosotros*/
+.nosotros {
+    display: grid;
+    grid-template-rows:repeat(2, auto);
+}
+@media (min-width: 768px) {
+    .nosotros {
+        grid-template-columns:repeat(2, 1fr);
+        column-gap: 2rem;
+    }
+}
+.nosotros__imagen {
+    grid-row: 1 / 2;
+}
+@media (min-width: 768px) {
+    .nosotros__imagen {
+        grid-column: 2 / 3;
+ }
+}
+/** Bloques**/
+.bloques {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /** hace 2 columna en dispositivo chicos*/
+    gap: 2rem;
+}
+@media (min-width: 768px) { /** este media hace 4 columna en dispositivo grandes**/
+    .bloques {
+    grid-template-columns: repeat(4, 1fr);
+    }
+}
+.bloques {
+    text-align: center;
+}
+.bloque__titulo{
+    margin: 0;
+}
+/*** pagina del productos**/
+@media (min-width: 768px) {
+    .camisa {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+    }
+ }
+.formulario {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+.formulario__campo {
+    border: var(--primarioOscuro);
+    border-width: 1rem;
+    border-style: solid;
+    background-color: var(--primario);
+    color: var(--blanco);
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 1rem;
+    appearance: none;
+    /* shurtcut border: 1rem solid var(--primarioOscuro); **/
+}
+.formulario__submit {
+    background-color: var(--secundario);
+    border: none;
+    font-size: 2rem;
+    font-family: var(--fuenteprincipal);
+    padding: 2rem;
+    transition: font-size .3s ease; /** hace una transición para que el boton sea más grande */
+    grid-column: 1 / 3;
+}
+.formulario__submit:hover { /** el hover cursor pointer le devuelve la manita al boton nuevamente**/
+    font-size: 2.4rem;
+    cursor: pointer;
+    background-color: var(--secundarioOscuro);
+}
+/**footer*/
+.footer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3 );
+    background-color: var(--primarioOscuro);
+    padding: .5rem 0;
+    margin-top: 5rem;
+}
+.footer__texto {
+    display: grid;
+    grid-column: 2 / 3;
+    grid-row: -3;
+    text-align: center; 
+    color: var(--blanco);
+    font-size: 2.3rem;
+ }
+
+.contenedorb .boton{ /*esto trabaja el contenedor donde va los botones*/
+    display: inline-block;
+    height: 6rem;
+    width: 6rem;
+    margin: .5rem;
+    margin-top: 1.5rem;
+    overflow: hidden;
+    background: #f0f2f5;
+    border-radius: 5rem;
+    cursor: pointer;
+    box-shadow: 0 1rem 1rem rgba(0,0,0,0.1);
+    transition: all .3s ease-out;
+}
+.contenedorb .boton:hover {
+    width: 185px;
+}
+
+.contenedorb .boton .iconos { /** esto trabaj las letras**/
+    display: inline-block;
+    height: 6rem;
+    width: 6rem;
+    border-radius: 5rem;
+    box-sizing: border-box;
+    line-height: 6rem;
+    text-align: center;
+    transition: all .3s ease-out;
+}
+.contenedorb .boton:nth-child(1):hover .iconos { /* hover le oculta los colores hasta cuando apresionas el boton, si se le quita los botones queda con color */
+    background: #1877f2;
+    color: #fff;
+}
+.contenedorb .boton:nth-child(2):hover .iconos {
+    background: #0073b0;
+    color: #fff;
+}
+.contenedorb .boton:nth-child(3):hover .iconos {
+    background: linear-gradient(30deg, #3040e6 10%, #d41356, #e74f31, #f0ce6d);
+    color: #fff;
+}
+.contenedorb .boton:nth-child(4):hover .iconos {
+    background: #eb0b0b;
+    color: #fff;
+}
+.contenedorb .boton:nth-child(5):hover .iconos {
+    background: #171515;
+    color: #fff;
+}
+.contenedorb .boton i {
+    font-size: 2.5rem;
+    line-height: 6rem;
+}
+.contenedorb .boton span {
+    color: #65676B;
+    font-weight:bold;
+    font-family: inherit;
+    font-size: 2.5rem;
+    font-weight: 500;
+    line-height: 6rem;
+    margin-left: 1rem;
+}
